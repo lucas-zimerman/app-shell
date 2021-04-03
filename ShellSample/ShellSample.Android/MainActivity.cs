@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Sentry;
 
 namespace ShellSample.Droid
 {
@@ -14,6 +15,11 @@ namespace ShellSample.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            SentryXamarin.Init(options =>
+            {
+                options.AddXamarinFormsIntegration();
+                options.Dsn = "https://5a193123a9b841bc8d8e42531e7242a1@o447951.ingest.sentry.io/5560112";
+            });
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
